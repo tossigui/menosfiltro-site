@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menos Filtro, Mais Você - Autoestima e Autocuidado</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #5a5a5a;
+        }
+        
+        .title-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, rgba(255,228,230,0.8) 0%, rgba(255,255,255,0.9) 100%);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial-card {
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(10px);
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid #f3f3f3;
+        }
+        
+        .faq-question {
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            color: #ff7e8b;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            max-height: 200px;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header/Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <span class="title-font text-2xl font-bold text-pink-500">Menos Filtro, Mais Você</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#produtos" class="text-gray-600 hover:text-pink-500 transition">Produtos</a>
+                <a href="#depoimentos" class="text-gray-600 hover:text-pink-500 transition">Depoimentos</a>
+                <a href="#faq" class="text-gray-600 hover:text-pink-500 transition">FAQ</a>
+            </nav>
+            <button class="md:hidden text-gray-600" id="mobile-menu-button">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-white w-full py-2 px-4 shadow-md" id="mobile-menu">
+            <a href="#produtos" class="block py-2 text-gray-600 hover:text-pink-500 transition">Produtos</a>
+            <a href="#depoimentos" class="block py-2 text-gray-600 hover:text-pink-500 transition">Depoimentos</a>
+            <a href="#faq" class="block py-2 text-gray-600 hover:text-pink-500 transition">FAQ</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container mx-auto px-4 py-12 md:py-24 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                <h1 class="title-font text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                    Menos filtro. <span class="text-pink-500">Mais você.</span>
+                </h1>
+                <p class="text-lg text-gray-600 mb-8">
+                    Três passos simples para recuperar sua autoestima, cuidar da pele, do corpo e se reconectar com sua leveza. <span class="text-pink-500">💗</span> Comece sua transformação hoje mesmo.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#kit" class="bg-pink-500 hover:bg-pink-600 text-white font-medium py-3 px-6 rounded-full text-center transition shadow-md">
+                        Quero começar agora
+                    </a>
+                    <a href="#produtos" class="border-2 border-pink-500 text-pink-500 hover:bg-pink-50 font-medium py-3 px-6 rounded-full text-center transition">
+                        Ver produtos
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <div class="w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-8 border-white shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" 
+                             alt="Mulher sorrindo sem filtro" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-5 -right-5 bg-white p-4 rounded-full shadow-lg">
+                        <div class="w-16 h-16 rounded-full bg-pink-100 flex items-center justify-center">
+                            <i class="fas fa-heart text-pink-500 text-2xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section class="py-16 bg-pink-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="title-font text-3xl md:text-4xl font-bold text-gray-800 mb-8">
+                    Sua jornada para a autoestima começa aqui
+                </h2>
+                <p class="text-lg text-gray-600 mb-6">
+                    Você não precisa de dietas malucas, cremes caríssimos ou treinos exaustivos para se sentir bem com seu corpo e sua pele. Basta um pouco de carinho, leveza e consistência.
+                </p>
+                <p class="text-lg text-gray-600">
+                    Apresentamos uma jornada em 3 etapas, feita para mulheres reais, com rotinas acessíveis, rápidas e que cabem no seu dia.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="py-16" id="produtos">
+        <div class="container mx-auto px-4">
+            <h2 class="title-font text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">
+                Nossos <span class="text-pink-500">Produtos</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 bg-gradient-to-r from-pink-100 to-purple-100 flex items-center justify-center">
+                        <i class="fas fa-spa text-6xl text-pink-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="title-font text-xl font-bold text-gray-800 mb-3">Sua Pele Mais Leve em 7 Dias</h3>
+                        <p class="text-gray-600 mb-4">
+                            SkinDetox de 10 minutos por dia para oleosidade, espinhas e autoestima.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-pink-500 text-xl">R$ 37</span>
+                            <button class="text-pink-500 hover:text-pink-600 font-medium transition">
+                                Saiba mais <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 bg-gradient-to-r from-green-100 to-teal-100 flex items-center justify-center">
+                        <i class="fas fa-leaf text-6xl text-green-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="title-font text-xl font-bold text-gray-800 mb-3">Desincha Express</h3>
+                        <p class="text-gray-600 mb-4">
+                            5 dias de alimentação desinflamatória para eliminar o inchaço e recuperar sua leveza.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-green-500 text-xl">R$ 27</span>
+                            <button class="text-green-500 hover:text-green-600 font-medium transition">
+                                Saiba mais <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 bg-gradient-to-r from-blue-100 to-indigo-100 flex items-center justify-center">
+                        <i class="fas fa-dumbbell text-6xl text-blue-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="title-font text-xl font-bold text-gray-800 mb-3">Corpo Mais Firme com 15 Min/Dia</h3>
+                        <p class="text-gray-600 mb-4">
+                            Treinos rápidos para glúteos, barriga e postura — sem academia.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-blue-500 text-xl">R$ 47</span>
+                            <button class="text-blue-500 hover:text-blue-600 font-medium transition">
+                                Saiba mais <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-pink-50" id="depoimentos">
+        <div class="container mx-auto px-4">
+            <h2 class="title-font text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">
+                Elas já <span class="text-pink-500">transformaram</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Juliana" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Juliana, 23 anos</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Minha pele nunca ficou tão boa com tão pouco."
+                    </p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Tamires" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Tamires, 29 anos</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Comecei o Desincha na segunda e na sexta já sentia meu corpo mais leve!"
+                    </p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/72.jpg" alt="Carla" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Carla, 34 anos</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Treinar 15 minutos por dia me tirou do sedentarismo e trouxe de volta minha confiança."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kit Offer Section -->
+    <section class="py-16 bg-gradient-to-r from-pink-400 to-pink-600 text-white" id="kit">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="title-font text-3xl md:text-4xl font-bold mb-6">
+                    ✨ Transformação completa com desconto exclusivo
+                </h2>
+                <p class="text-xl mb-8">
+                    Adquira os 3 produtos por <span class="font-bold">R$ 89</span> (em vez de R$ 111)<br>
+                    Autocuidado completo: Desinche, renove a pele e recupere a firmeza do corpo.
+                </p>
+                <a href="#" class="inline-block bg-white hover:bg-gray-100 text-pink-600 font-bold py-4 px-8 rounded-full text-lg transition shadow-lg">
+                    Quero o Kit Completo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-white" id="faq">
+        <div class="container mx-auto px-4">
+            <h2 class="title-font text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">
+                Dúvidas <span class="text-pink-500">Frequentes</span>
+            </h2>
+            
+            <div class="max-w-3xl mx-auto">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item mb-6">
+                    <div class="faq-question flex justify-between items-center cursor-pointer py-4">
+                        <h3 class="text-lg font-medium text-gray-800">Os produtos são físicos?</h3>
+                        <i class="fas fa-chevron-down text-pink-500 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-600 pb-4">
+                            Não, todos os produtos são digitais. Após a compra, você recebe acesso imediato no seu e-mail.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="faq-item mb-6">
+                    <div class="faq-question flex justify-between items-center cursor-pointer py-4">
+                        <h3 class="text-lg font-medium text-gray-800">Preciso seguir horários fixos?</h3>
+                        <i class="fas fa-chevron-down text-pink-500 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-600 pb-4">
+                            Não! A proposta é se adaptar à sua rotina, com passos simples e flexíveis.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="faq-item mb-6">
+                    <div class="faq-question flex justify-between items-center cursor-pointer py-4">
+                        <h3 class="text-lg font-medium text-gray-800">É indicado para qualquer idade?</h3>
+                        <i class="fas fa-chevron-down text-pink-500 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-600 pb-4">
+                            A linguagem foi pensada para mulheres entre 16 e 40 anos, mas pode ser adaptado por qualquer pessoa.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="mb-6 md:mb-0">
+                    <span class="title-font text-2xl font-bold text-pink-500">Menos Filtro, Mais Você</span>
+                </div>
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="#" class="text-gray-600 hover:text-pink-500 transition">Sobre a marca</a>
+                    <a href="#" class="text-gray-600 hover:text-pink-500 transition">Política de privacidade</a>
+                    <a href="#" class="text-gray-600 hover:text-pink-500 transition">Suporte</a>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-pink-500 transition">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-pink-500 transition">
+                        <i class="fab fa-facebook text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-pink-500 transition">
+                        <i class="fab fa-tiktok text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 pt-8 text-center text-gray-500">
+                <p>🌸 Menos Filtro, Mais Você – Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // FAQ accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                
+                // Toggle answer visibility
+                answer.classList.toggle('active');
+                
+                // Rotate icon
+                if (answer.classList.contains('active')) {
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    icon.style.transform = 'rotate(0deg)';
+                }
+                
+                // Close other open FAQs
+                document.querySelectorAll('.faq-answer').forEach(otherAnswer => {
+                    if (otherAnswer !== answer && otherAnswer.classList.contains('active')) {
+                        otherAnswer.classList.remove('active');
+                        otherAnswer.previousElementSibling.querySelector('i').style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
